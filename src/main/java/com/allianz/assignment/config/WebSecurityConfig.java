@@ -66,8 +66,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.csrf().disable()
 				// Don't authenticate this particular request
 				.authorizeRequests().antMatchers("/authenticate").permitAll()
-				//ignore swagger for security check
-				.antMatchers("/swagger-ui.html**").permitAll()
 				// all other requests need to be authenticated
 				.anyRequest().authenticated().and()
 				// make sure we use stateless session;

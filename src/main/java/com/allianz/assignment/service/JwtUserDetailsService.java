@@ -22,7 +22,7 @@ import com.allianz.assignment.repo.EmployeeRepository;
 public class JwtUserDetailsService implements UserDetailsService {
 	
 	@Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeService empservice;
 
 	
 	/**
@@ -32,7 +32,7 @@ public class JwtUserDetailsService implements UserDetailsService {
 	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Employee employee = employeeRepository.findByFirstName(username);
+		Employee employee = empservice.findByFirstName(username);
 				
 		
 		if (employee!=null) {
